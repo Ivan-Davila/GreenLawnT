@@ -1,0 +1,171 @@
+﻿<Window x:Class="LawnTree.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LawnTree"
+        mc:Ignorable="d"
+        Title="Register customer" Height="545.373" Width="977.2" FontSize="16">
+    <Grid Margin="0,0,2,4">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="918" Margin="0,0,0,-0.8" Height="516" VerticalAlignment="Top">
+
+            <TabItem Header="I_New">
+                <Grid x:Name="jobs" Background="White" Margin="0,-1,-60.2,-5.6">
+
+                    <Label x:Name="label" Content="Customer" HorizontalAlignment="Left" Margin="24,95,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.105,0.279" Height="27" FontSize="16"/>
+                    <Button x:Name="Search_customer" Content="Search" HorizontalAlignment="Left" Margin="255,95,0,0" VerticalAlignment="Top" Width="75" Click="Button2_Click" FontSize="16" RenderTransformOrigin="2.263,0.532"/>
+                    <Label x:Name="label1" Content="Jobs" HorizontalAlignment="Left" Margin="80,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.052,-0.593" FontSize="16"/>
+                    <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="293" Margin="20,183,0,0" VerticalAlignment="Top" Width="163" SelectionChanged="ListBox1_SelectionChanged" FontSize="16">
+                        <ListBoxItem Content="Tree Removal" HorizontalContentAlignment="Center" Selected="Selected_Tree_Removal"/>
+                        <ListBoxItem Content="Pruning" HorizontalContentAlignment="Center" Selected="Selected_Pruning"/>
+                        <ListBoxItem Content="Stump Grinding" HorizontalContentAlignment="Center" Selected="Selected_Stump_Grinding"/>
+                        <ListBoxItem Content="Mulching" HorizontalContentAlignment="Center" Selected="Selected_Mulching"/>
+                        <ListBoxItem Content="Edging" HorizontalContentAlignment="Center" Selected="Selected_Edging"/>
+                        <ListBoxItem Content="Leaf Removal" HorizontalContentAlignment="Center" Selected="Selected_Leaf_Removal"/>
+                        <ListBoxItem Content="Aeration" HorizontalContentAlignment="Center" Selected="Selected_Aeration"/>
+                        <ListBoxItem Content="Sod Installation" HorizontalContentAlignment="Center" Selected="Selected_Sod_installation"/>
+                        <ListBoxItem Content="Cost Cleaning" HorizontalContentAlignment="Center" Selected="Selected_Cost_Cleaning"/>
+                        <ListBoxItem Content="Lawn Mower" HorizontalContentAlignment="Center" Selected="Selected_Lawn_Mower"/>
+                        <ListBoxItem Content="Others" HorizontalContentAlignment="Center" Selected="Selected_Others"/>
+                    </ListBox>
+                    <Label x:Name="label2" Content="Jobs" HorizontalAlignment="Left" Margin="276,146,0,0" VerticalAlignment="Top" Width="100" FontSize="16"/>
+                    <Label x:Name="label4" Content="Description" HorizontalAlignment="Left" Margin="429,146,0,0" VerticalAlignment="Top" Width="106" FontSize="16"/>
+                    <Label x:Name="label5" Content="Price" HorizontalAlignment="Left" Margin="658,146,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="Job_tr" Content="Tree removal" Margin="270,188,0,0" Width="116" Visibility="Visible" FontSize="16" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <Label x:Name="Job_pr" Content="Pruning" Margin="270,214,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32"/>
+                    <Label x:Name="label8" Content="Stump grinding" Margin="270,237,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32"/>
+                    <Label x:Name="Job_mu" Content="Mulching" Height="32" Margin="270,260,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left"/>
+                    <Label x:Name="Job_ed" Content="Edging" Margin="270,283,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32"/>
+                    <Label x:Name="Job_le" Content="Leaf removal" Margin="270,306,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32"/>
+                    <Label x:Name="Job_ae" Content="Aeration" Margin="270,329,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32"/>
+                    <Label x:Name="Job_si" Content="Sod installation" Margin="270,353,0,0" VerticalAlignment="Top" Width="131" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32"/>
+                    <Label x:Name="Job_cc" Content="Cost cleaning" Margin="270,376,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32"/>
+                    <Label x:Name="Job_lm" Content="Lawn mower" Margin="270,399,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32"/>
+                    <Label x:Name="Job_ot" Content="Others" Margin="270,422,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32"/>
+                    <TextBox x:Name="Pri_lr" HorizontalAlignment="Left" Height="23" Margin="650,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Pri_si" HorizontalAlignment="Left" Height="23" Margin="650,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Pri_lm" HorizontalAlignment="Left" Height="23" Margin="650,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Pri_ot" HorizontalAlignment="Left" Height="23" Margin="650,421,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Pri_tr" HorizontalAlignment="Left" Height="23" Margin="650,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Pri_pr" HorizontalAlignment="Left" Height="23" Margin="650,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Pri_sg" HorizontalAlignment="Left" Height="23" Margin="650,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Pri_mu" HorizontalAlignment="Left" Height="23" Margin="650,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Pri_ed" HorizontalAlignment="Left" Height="23" Margin="650,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Pri_ae" HorizontalAlignment="Left" Height="23" Margin="650,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Pri_cc" HorizontalAlignment="Left" Height="23" Margin="650,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
+                    <TextBox x:Name="Desc_tr" HorizontalAlignment="Left" Height="23" Margin="429,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="Desc_pr" HorizontalAlignment="Left" Height="23" Margin="429,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="Desc_sg" HorizontalAlignment="Left" Height="23" Margin="429,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="Desc_mu" HorizontalAlignment="Left" Height="23" Margin="429,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="Desc_ed" HorizontalAlignment="Left" Height="23" Margin="429,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="Desc_lr" HorizontalAlignment="Left" Height="23" Margin="429,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="Desc_ae" HorizontalAlignment="Left" Height="23" Margin="429,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="Desc_si" HorizontalAlignment="Left" Height="23" Margin="429,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="Desc_cc" HorizontalAlignment="Left" Height="23" Margin="429,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="Desc_lm" HorizontalAlignment="Left" Height="23" Margin="429,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="Desc_ot" HorizontalAlignment="Left" Height="23" Margin="429,421,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <Calendar HorizontalAlignment="Left" Margin="722,189,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="Customer_Select" HorizontalAlignment="Left" Margin="124,95,0,0" VerticalAlignment="Top" Width="120" Text="Select " AutomationProperties.HelpText="Select" IsTextSearchCaseSensitive="True" SelectionChanged="ComboBox_SelectionChanged"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="I_View ">
+                <Grid Background="White">
+
+                    <Label x:Name="label2_Copy" Content="Jobs" HorizontalAlignment="Left" Margin="316.6,29,0,0" VerticalAlignment="Top" Width="100" FontSize="16" Grid.Column="1"/>
+                    <Label x:Name="label4_Copy" Content="Description" HorizontalAlignment="Left" Margin="469.6,29,0,0" VerticalAlignment="Top" Width="106" FontSize="16" Grid.Column="1"/>
+                    <Label x:Name="label5_Copy" Content="Price" HorizontalAlignment="Left" Margin="698.6,29,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <Label x:Name="Job_tr_Copy" Content="Tree removal" Margin="310.6,71,0,0" Width="116" Visibility="Visible" FontSize="16" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1"/>
+                    <Label x:Name="Job_pr_Copy" Content="Pruning" Margin="310.6,97,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32" Grid.Column="1"/>
+                    <Label x:Name="label8_Copy" Content="Stump grinding" Margin="310.6,120,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32" Grid.Column="1"/>
+                    <Label x:Name="Job_mu_Copy" Content="Mulching" Height="32" Margin="310.6,143,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Grid.Column="1"/>
+                    <Label x:Name="Job_ed_Copy" Content="Edging" Margin="310.6,166,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32" Grid.Column="1"/>
+                    <Label x:Name="Job_le_Copy" Content="Leaf removal" Margin="310.6,189,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32" Grid.Column="1"/>
+                    <Label x:Name="Job_ae_Copy" Content="Aeration" Margin="310.6,212,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32" Grid.Column="1"/>
+                    <Label x:Name="Job_si_Copy" Content="Sod installation" Margin="310.6,236,0,0" VerticalAlignment="Top" Width="131" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32" Grid.Column="1"/>
+                    <Label x:Name="Job_cc_Copy" Content="Cost cleaning" Margin="310.6,259,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32" Grid.Column="1"/>
+                    <Label x:Name="Job_lm_Copy" Content="Lawn mower" Margin="310.6,282,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32" Grid.Column="1"/>
+                    <Label x:Name="Job_ot_Copy" Content="Others" Margin="310.6,305,0,0" VerticalAlignment="Top" Width="106" Visibility="Visible" FontSize="16" HorizontalAlignment="Left" Height="32" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_lr_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_si_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_lm_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_ot_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_tr_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_pr_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_sg_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_mu_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_ed_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_ae_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Pri_cc_Copy" HorizontalAlignment="Left" Height="23" Margin="689.6,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_tr_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_pr_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_sg_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_mu_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_ed_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_lr_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_ae_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_si_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_cc_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_lm_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Desc_ot_Copy" HorizontalAlignment="Left" Height="23" Margin="469.6,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="C_Register">
+                <Grid Background="White">
+
+                    <Button x:Name="btnreg_reg" Content="Register" HorizontalAlignment="Left" Margin="22,290,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="btnreg_search" Content="Search" HorizontalAlignment="Left" Margin="381,285,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.028,0.507"/>
+                    <TextBox x:Name="Reg_fn" HorizontalAlignment="Left" Height="23" Margin="106,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="16"/>
+                    <TextBox x:Name="Reg_in" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="109,76,0,0" FontSize="16"/>
+                    <TextBox x:Name="Reg_add" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="109,116,0,0" FontSize="16"/>
+                    <TextBox x:Name="Reg_ph" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="109,163,0,0" FontSize="16"/>
+                    <TextBox x:Name="Reg_ma" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="109,207,0,0" FontSize="16"/>
+                    <TextBox x:Name="Reg_pf" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="109,243,0,0" FontSize="16"/>
+                    <Button x:Name="btnreg_del" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="180,288,0,0"/>
+                    <Label x:Name="label3" Content="First name&#xD;&#xA;" HorizontalAlignment="Right" Margin="19,36,810,0" VerticalAlignment="Top" FontSize="16" Height="29"/>
+                    <Label x:Name="label6" Content="Last name" HorizontalAlignment="Right" Margin="18,76,810,0" VerticalAlignment="Top" FontSize="16" Height="29"/>
+                    <Label x:Name="label7" Content="Address" HorizontalAlignment="Right" Margin="32,116,810,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="label9" Content="Phone" HorizontalAlignment="Right" Margin="43,163,810,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="label10" Content="Main" HorizontalAlignment="Right" Margin="0,207,810,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="label11" Content="Price firm" HorizontalAlignment="Right" Margin="0,243,810,0" VerticalAlignment="Top" FontSize="16"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="C_Search ">
+                <Grid Background="White">
+
+                    <Button x:Name="button" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="148,19,0,0" Grid.Column="1"/>
+                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="117" Margin="61,56,0,0" VerticalAlignment="Top" Width="218" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="163" Margin="53,19,0,0" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="22,184,0,0" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="CDelete">
+                <Grid Background="White">
+
+                    <Button x:Name="button1" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="216,34,0,0"/>
+                    <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="22,30,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Documents">
+                <Grid Background="White">
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Menu Grid.Row="0" Margin="0,0,-2.8,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="972" Visibility="Visible" FontSize="16" Height="39" >
+            <MenuItem Header="Invoices"  >
+                <MenuItem Header="New invoice" Click="MenuItem_N_I"/>
+                <MenuItem Header="View invoice" Click="MenuItem_V_I"/>
+            </MenuItem>
+            <MenuItem Header="Customer" >
+                <MenuItem Header="Register customer" Click="MenuItem_R_C"/>
+                <MenuItem Header="Seach customer" Click="MenuItem_S_C"/>
+                <MenuItem Header="Delete customer" Click="MenuItem_D_C"/>
+            </MenuItem>
+            <MenuItem Header="Documents" Click="MenuItem_D"/>
+        </Menu>
+
+    </Grid>
+</Window>
