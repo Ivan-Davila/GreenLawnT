@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace LawnTree.Clases
 {
     class DatosCustomer { 
-        string FirstName, LastName, Address, Mail;
-        int Phone, PriceFirm;
+        public string FirstName, LastName, Address_c, Mail;
+        public int Phone, PriceFirm;
 
         public string FirstName_p
         {
@@ -22,7 +22,7 @@ namespace LawnTree.Clases
 
         public string Address_p
         {
-            set { Address = value; }
+            set { Address_c = value; }
         }
 
         public string Mail_p
