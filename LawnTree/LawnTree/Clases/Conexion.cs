@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Data;
-using System.Windows.Forms;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace LawnTree.Clases
 {
     class Conexion:DatosCustomer
     {
+        //customer
         //insertar datos
         SqlConnection conectar;
         SqlCommand cmd = new SqlCommand();
         //visualizar datos
         SqlDataAdapter adapter;//tener acceso a la base de datos
-        DataTable tabla; //comunica la base de datos con nuestro formulario
+        DataSet tabla; //comunica la base de datos con nuestro formulario
         public void insertar()
         {
             conectar = new SqlConnection();
@@ -54,6 +56,7 @@ namespace LawnTree.Clases
         }
 
         public void visualizar(DataGrid data)
+            
         {
             conectar = new SqlConnection();
             conectar.ConnectionString = conexion_string.string_conexion();
@@ -62,6 +65,19 @@ namespace LawnTree.Clases
             {
                 conectar.Open();
                 cmd.Connection = conectar;
+                cmd.CommandText = "visualizar";
+
+                adapter = new SqlDataAdapter(cmd);
+                tabla = new DataSet();
+
+                adapter.Fill(tabla);
+                tabla.Tables[0].Columns.Remove(tabla.Tables[0].Columns[3]);
+                tabla.Tables[0].Columns.Remove(tabla.Tables[0].Columns[3]);
+                tabla.Tables[0].Columns.Remove(tabla.Tables[0].Columns[3]);
+                tabla.Tables[0].Columns.Remove(tabla.Tables[0].Columns[3]);
+                data.ItemsSource = tabla.Tables[0].DefaultView;
+                
+
             }
             catch (Exception ex)
             {
