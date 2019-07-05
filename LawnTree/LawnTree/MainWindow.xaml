@@ -8,11 +8,11 @@
         Title="Register customer" Height="545.373" Width="977.2" FontSize="16" Background="white" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" BorderThickness="1">
     <Grid Margin="0,0,0,0">
         <TabControl x:Name="tabControl"  Margin="0,-1,0,0" Height="516" Width="968" FontSize="7">
-
+            <!-- Tab new invoice -->
             <TabItem Header="I_New">
                 <Grid x:Name="jobs" Background="White" Margin="0,0,129.4,95.6">
                     <Label x:Name="label" Content="Customer" HorizontalAlignment="Left" Margin="4,11,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.105,0.279" Height="27" FontSize="16"/>
-                    <Button x:Name="Search_customer" Content="Search" HorizontalAlignment="Left" Margin="235,11,0,0" VerticalAlignment="Top" Width="75" FontSize="16" RenderTransformOrigin="2.263,0.532"/>
+                    <Button x:Name="Search_customer" Content="Search" HorizontalAlignment="Left" Margin="316,16,0,0" VerticalAlignment="Top" Width="75" FontSize="16" RenderTransformOrigin="2.263,0.532"/>
                     <Label x:Name="label1" Content="available jobs" HorizontalAlignment="Left" Margin="31,63,0,396.2" RenderTransformOrigin="1.052,-0.593" FontSize="16"/>
                     <ListBox x:Name="List_Jobs" Background="AliceBlue" HorizontalAlignment="Left" Height="293" Margin="0,99,0,0" VerticalAlignment="Top" Width="163" SelectionChanged="ListBox1_SelectionChanged" SelectionMode="Multiple" FontSize="16">
                         <ListBoxItem Name="List_tr" Content="Tree Removal" HorizontalContentAlignment="Center" ></ListBoxItem>
@@ -61,13 +61,16 @@
                     <TextBox x:Name="Desc_ae" HorizontalAlignment="Left" Height="23" Margin="347,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
                     <TextBox x:Name="Desc_si" HorizontalAlignment="Left" Height="23" Margin="347,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
                     <TextBox x:Name="Desc_cc" HorizontalAlignment="Left" Height="23" Margin="347,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
-                    <TextBox x:Name="Desc_lm" HorizontalAlignment="Left" Height="23" Margin="347,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
+                    <TextBox x:Name="mes_lm" HorizontalAlignment="Left" Height="23" Margin="347,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" FontSize="16"/>
+                    <TextBox x:Name="dias_lm" HorizontalAlignment="Left" Height="23" Margin="457,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" FontSize="16"/>
                     <TextBox x:Name="Desc_ot" HorizontalAlignment="Left" Height="23" Margin="347,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16"/>
                     <Calendar x:Name="Calen_lm" HorizontalAlignment="Left" Margin="643,105,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="Customer_Select" HorizontalAlignment="Left" Margin="88,15,0,0" VerticalAlignment="Top" Width="120" Text="Select " AutomationProperties.HelpText="Select" IsTextSearchCaseSensitive="True" SelectionChanged="ComboBox_SelectionChanged" FontSize="16"/>
+                    <ComboBox x:Name="Customer_Select" HorizontalAlignment="Left" Margin="88,15,0,0" VerticalAlignment="Top" Width="214" Text="Select " AutomationProperties.HelpText="Select Customer..." IsTextSearchCaseSensitive="True" SelectionChanged="ComboBox_SelectionChanged" FontSize="16"/>
+                    <Button x:Name="button" Content="Generate invoice" HorizontalAlignment="Left" Margin="665,303,0,0" VerticalAlignment="Top" Width="158" Height="32" Click="Gen_Inv" Background="#FFBDACAC" FontSize="18"/>
 
                 </Grid>
             </TabItem>
+            <!-- Tab para visualizar las notas -->
             <TabItem Header="I_View ">
                 <Grid Background="White">
 
@@ -109,6 +112,7 @@
                     <TextBox x:Name="Desc_ot_V" HorizontalAlignment="Left" Height="23" Margin="469.6,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
                 </Grid>
             </TabItem>
+            <!-- Tab para registrar clientes -->
             <TabItem Header="C_Register">
                 <Grid Background="White" Margin="0,0,521.4,138.6">
 
@@ -136,42 +140,47 @@
                         </Label.RenderTransform>
                     </Label>
                     <Label x:Name="label11" Content="Price firm" HorizontalAlignment="Left" Margin="46,232,0,0" VerticalAlignment="Top" FontSize="16"/>
-
-
                 </Grid>
             </TabItem>
+            <!-- Tab para buscar los clientes registrados en la base de datos -->
             <TabItem Header="C_Search " Margin="0">
                 <Grid Background="White" Margin="0,0,0,0">
-                    <Label x:Name="Name" Content="First name&#xD;&#xA;" HorizontalAlignment="Right" Margin="0,75,399.4,0" VerticalAlignment="Top" FontSize="16" Height="29"/>
-                    <Label x:Name="last_name" Content="Last name" HorizontalAlignment="Right" Margin="0,115,399.4,0" VerticalAlignment="Top" FontSize="16" Height="29"/>
-                    <Label x:Name="Address" Content="Address" HorizontalAlignment="Right" Margin="0,155,399.4,0" VerticalAlignment="Top" FontSize="16"/>
-                    <Label x:Name="Phone" Content="Phone" HorizontalAlignment="Right" Margin="0,202,399.4,0" VerticalAlignment="Top" FontSize="16"/>
-                    <Label x:Name="Email" Content="Email" HorizontalAlignment="Right" Margin="0,246,399.4,0" VerticalAlignment="Top" FontSize="16"/>
-                    <Label x:Name="Price_firm" Content="Price firm" HorizontalAlignment="Right" Margin="0,282,399.4,0" VerticalAlignment="Top" FontSize="16"/>
-                    <TextBox x:Name="Search_fn" HorizontalAlignment="Left" Height="23" Margin="574,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="16"/>
-                    <TextBox x:Name="Search_in" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="578,119,0,0" FontSize="16"/>
-                    <TextBox x:Name="Search_add" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="578,159,0,0" FontSize="16"/>
-                    <TextBox x:Name="Search_ph" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="578,207,0,0" FontSize="16"/>
-                    <TextBox x:Name="Search_ma" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="578,251,0,0" FontSize="16"/>
-                    <TextBox x:Name="Search_pf" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="578,287,0,0" FontSize="16"/>
-                    <Label Content="Customers" HorizontalAlignment="Left" Margin="12,55,0,0" VerticalAlignment="Top"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="14*"/>
+                        <ColumnDefinition Width="467*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="Name" Content="First name&#xD;&#xA;" HorizontalAlignment="Right" Margin="0,75,399.4,0" VerticalAlignment="Top" FontSize="16" Height="29" Grid.Column="1"/>
+                    <Label x:Name="last_name" Content="Last name" HorizontalAlignment="Right" Margin="0,115,399.4,0" VerticalAlignment="Top" FontSize="16" Height="29" Grid.Column="1"/>
+                    <Label x:Name="Address" Content="Address" HorizontalAlignment="Right" Margin="0,155,399.4,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <Label x:Name="Phone" Content="Phone" HorizontalAlignment="Right" Margin="0,202,399.4,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <Label x:Name="Email" Content="Email" HorizontalAlignment="Right" Margin="0,246,399.4,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <Label x:Name="Price_firm" Content="Price firm" HorizontalAlignment="Right" Margin="0,282,399.4,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Search_fn" HorizontalAlignment="Left" Height="23" Margin="545.7,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Search_in" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="549.7,119,0,0" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Search_add" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="549.7,159,0,0" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Search_ph" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="549.7,207,0,0" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Search_ma" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="549.7,251,0,0" FontSize="16" Grid.Column="1"/>
+                    <TextBox x:Name="Search_pf" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="549.7,287,0,0" FontSize="16" Grid.Column="1"/>
+                    <Label Content="Customers" HorizontalAlignment="Left" Margin="12,55,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
 
-                    <Label x:Name="label8" Content="Customer data " HorizontalAlignment="Left" Margin="570,46,0,0" VerticalAlignment="Top"/>
-                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="124" Margin="17,100,0,0" VerticalAlignment="Top" Width="255" ColumnWidth="SizeToCells">
+                    <Label x:Name="label8" Content="Customer data " HorizontalAlignment="Left" Margin="541.7,46,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="206" Margin="17,100,0,0" VerticalAlignment="Top" Width="430" ColumnWidth="SizeToCells" FontSize="14" SelectionMode="Single" SelectionUnit="Cell" CanUserAddRows="False" CanUserResizeRows="False" RowDetailsVisibilityMode="Visible" Grid.ColumnSpan="2">
                         <DataGrid.Effect>
                             <DropShadowEffect/>
                         </DataGrid.Effect>
                     </DataGrid>
                 </Grid>
             </TabItem>
+            <!-- Tab para borrar clientes -->
             <TabItem Header="CDelete">
                 <Grid Background="White">
-
+                        
                     <Button x:Name="btn_delete" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="216,34,0,0"/>
                     <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="22,30,0,0"/>
                 </Grid>
             </TabItem>
+            <!-- Tab para visualizar los documentos creados -->
             <TabItem Header="Documents">
                 <Grid Background="White">
 

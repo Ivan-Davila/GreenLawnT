@@ -74,7 +74,7 @@ namespace LawnTree.Clases
                 tabla.Tables[0].Columns.Remove(tabla.Tables[0].Columns[3]);
                 tabla.Tables[0].Columns.Remove(tabla.Tables[0].Columns[3]);
                 tabla.Tables[0].Columns.Remove(tabla.Tables[0].Columns[3]);
-                tabla.Tables[0].Columns.Remove(tabla.Tables[0].Columns[3]);
+                
                 data.ItemsSource = tabla.Tables[0].DefaultView;
                 
 

@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LawnTree.Clases;
-using System.Windows.Controls;
+using System.IO;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+
 
 namespace LawnTree
 
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
+    /// </summary> 
+      
     public partial class MainWindow : Window
     {
         private Visibility visible;
+        
 
         // manejo de datos de la base de datos
         Conexion obj_conexion = new Conexion();
@@ -72,7 +76,8 @@ namespace LawnTree
             Pri_cc.Visibility = Visibility.Hidden;
 
             Job_lm.Visibility = Visibility.Hidden;
-            Desc_lm.Visibility = Visibility.Hidden;
+            mes_lm.Visibility = Visibility.Hidden;
+            dias_lm.Visibility = Visibility.Hidden;
             Pri_lm.Visibility = Visibility.Hidden;
             Calen_lm.Visibility = Visibility.Hidden;
 
@@ -82,7 +87,7 @@ namespace LawnTree
 
         }
 
-        //listBox Control
+        //listBox Control de visibilidad 
         private void ListBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (List_tr.IsSelected)
@@ -196,14 +201,16 @@ namespace LawnTree
             if (List_lm.IsSelected)
             {
                 Job_lm.Visibility = visible;
-                Desc_lm.Visibility = visible;
+                mes_lm.Visibility = visible;
+                dias_lm.Visibility = visible;
                 Pri_lm.Visibility = visible;
                 Calen_lm.Visibility = visible;
             }
             else
             {
                 Job_lm.Visibility = Visibility.Hidden;
-                Desc_lm.Visibility = Visibility.Hidden;
+                mes_lm.Visibility = Visibility.Hidden;
+                dias_lm.Visibility = Visibility.Hidden;
                 Pri_lm.Visibility = Visibility.Hidden;
                 Calen_lm.Visibility = Visibility.Hidden;
             }
@@ -277,12 +284,203 @@ namespace LawnTree
                 MessageBox.Show("Just enter numbers");
             }
         }
-
-        
-
+     
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            
+        }
+
+
+        //boton generar Invoice-------------------------------------------------------------------------------------------
+        //crea el archivo pdf y lo manda por correo
+        private void Gen_Inv(object sender, RoutedEventArgs e)
+        {
+            // Creamos el documento con el tamaño de página tradicional
+            Document doc = new Document(PageSize.LETTER);
+            // Indicamos donde vamos a guardar el documento
+            PdfWriter writer = PdfWriter.GetInstance(doc,
+                                        new FileStream(@"C:\Users\Arkangel Iván\Desktop\aqui.pdf", FileMode.Create));
+
+
+
+            // Le colocamos el título y el autor
+            // **Nota: Esto no será visible en el documento
+            doc.AddTitle("Ticket");
+            doc.AddCreator("tu");
+
+            // Abrimos el archivo
+            doc.Open();
+            FileStream fs = new FileStream("Ticket.pdf", FileMode.Create);
+
+            //Creamos el tipo de Font que vamos utilizar
+            iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+
+
+            // Escribimos el encabezamiento en el documento
+            doc.Add(new Paragraph("Ticket"));
+            doc.Add(Chunk.NEWLINE);
+
+            // Creamos una tabla que contendrá el nombre, apellido y país
+            // de nuestros visitante.
+            PdfPTable tblPrueba = new PdfPTable(3);
+            tblPrueba.WidthPercentage = 100;
+
+            // Configuramos el título de las columnas de la tabla
+            PdfPCell clJobs = new PdfPCell(new Phrase("Jobs", _standardFont));
+            clJobs.BorderWidth = 1;
+            clJobs.BorderWidthBottom = 0.75f;
+
+    
+            PdfPCell clDescription = new PdfPCell(new Phrase("Description", _standardFont));
+            clDescription.BorderWidth = 1;
+            clDescription.BorderWidthBottom = 0.75f;
+
+            PdfPCell clPrice = new PdfPCell(new Phrase("Price", _standardFont));
+            clPrice.BorderWidth = 1;
+            clPrice.BorderWidthBottom = 0.75f;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+
+            // Llenamos la tabla de JOBS con información
+            clJobs = new PdfPCell(new Phrase("Tree Removal", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(Desc_tr.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_tr.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+
+
+            clJobs = new PdfPCell(new Phrase("Pruning", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(Desc_pr.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_pr.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+
+            clJobs = new PdfPCell(new Phrase("Stump Grinding", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(Desc_sg.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_sg.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+
+            clJobs = new PdfPCell(new Phrase("Mulching", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(Desc_mu.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_mu.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+
+            clJobs = new PdfPCell(new Phrase("Edging", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(Desc_ed.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_ed.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+
+            clJobs = new PdfPCell(new Phrase("Leaf Removal", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(Desc_lr.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_lr.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+            clJobs = new PdfPCell(new Phrase("Aeration", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(Desc_lr.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_lr.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+            clJobs = new PdfPCell(new Phrase("Sod Installation", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(Desc_si.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_si.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+
+            clJobs = new PdfPCell(new Phrase("Cost Cleaning", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(Desc_cc.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_cc.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+
+            clJobs = new PdfPCell(new Phrase("Lawn Mower", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(mes_lm.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_lm.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+            clJobs = new PdfPCell(new Phrase("Others", _standardFont));
+            clJobs.BorderWidth = 1;
+            clDescription = new PdfPCell(new Phrase(Desc_ot.Text, _standardFont));
+            clDescription.BorderWidth = 1;
+            clPrice = new PdfPCell(new Phrase(Pri_ot.Text, _standardFont));
+            clPrice.BorderWidth = 1;
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clJobs);
+            tblPrueba.AddCell(clDescription);
+            tblPrueba.AddCell(clPrice);
+
+            // Finalmente, añadimos la tabla al documento PDF y cerramos el documento
+            doc.Add(tblPrueba);
+
+            doc.Close();
+            writer.Close();
+
+
         }
     }
 }
