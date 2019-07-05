@@ -317,16 +317,33 @@ namespace LawnTree
 
 
             // Escribimos el encabezamiento en el documento
-            doc.Add(new Paragraph("Ticket"));
-            doc.Add(Chunk.NEWLINE);
 
-            // Creamos una tabla que contendrá el nombre, apellido y país
+            //doc.Add(Chunk.NEWLINE);salto de linea
+
+            //se crea la tabla Nom:Adress
+            PdfPTable tblNom_Adress = new PdfPTable(1);
+            tblNom_Adress.WidthPercentage = 90;
+            //crea la celda nombre
+            PdfPCell clNom = new PdfPCell(new Phrase("Name: ", _standardFont));
+            clNom.BorderWidth = 1;
+            clNom.BorderWidthBottom = 0f;
+            // se crea la celda Adress
+            PdfPCell clAdress = new PdfPCell(new Phrase("Adress: ", _standardFont));
+            clNom.BorderWidth = 1;
+            clNom.BorderWidthBottom = 0f;
+            //Se agrega la celda Adrees 
+            tblNom_Adress.AddCell(clNom);
+            tblNom_Adress.AddCell(clAdress);
+            doc.Add(tblNom_Adress);
+            
+
+            // Creamos una tabla que contendrá el jobs, description y price
             // de nuestros visitante.
             PdfPTable tblPrueba = new PdfPTable(3);
-            tblPrueba.WidthPercentage = 100;
+            tblPrueba.WidthPercentage = 90;
 
             // Configuramos el título de las columnas de la tabla
-            PdfPCell clJobs = new PdfPCell(new Phrase("Jobs", _standardFont));
+            PdfPCell clJobs = new PdfPCell(new Phrase("Job type", _standardFont));
             clJobs.BorderWidth = 1;
             clJobs.BorderWidthBottom = 0.75f;
 
@@ -338,6 +355,9 @@ namespace LawnTree
             PdfPCell clPrice = new PdfPCell(new Phrase("Price", _standardFont));
             clPrice.BorderWidth = 1;
             clPrice.BorderWidthBottom = 0.75f;
+
+
+
             // Añadimos las celdas a la tabla
             tblPrueba.AddCell(clJobs);
             tblPrueba.AddCell(clDescription);
@@ -440,7 +460,7 @@ namespace LawnTree
             tblPrueba.AddCell(clPrice);
 
 
-            clJobs = new PdfPCell(new Phrase("Cost Cleaning", _standardFont));
+            clJobs = new PdfPCell(new Phrase("Lost Cleaning", _standardFont));
             clJobs.BorderWidth = 1;
             clDescription = new PdfPCell(new Phrase(Desc_cc.Text, _standardFont));
             clDescription.BorderWidth = 1;
@@ -451,17 +471,40 @@ namespace LawnTree
             tblPrueba.AddCell(clDescription);
             tblPrueba.AddCell(clPrice);
 
+            
 
-            clJobs = new PdfPCell(new Phrase("Lawn Mower", _standardFont));
+            doc.Add(tblPrueba);
+
+            
+
+            //TABLA DE LAWN
+            PdfPTable tblLawn = new PdfPTable(4);
+            tblPrueba.WidthPercentage = 100;
+
+            // Configuramos el título de las columnas de la tabla
+            PdfPCell clJobs_L = new PdfPCell(new Phrase("Lawn Mower", _standardFont));
             clJobs.BorderWidth = 1;
-            clDescription = new PdfPCell(new Phrase(mes_lm.Text, _standardFont));
-            clDescription.BorderWidth = 1;
-            clPrice = new PdfPCell(new Phrase(Pri_lm.Text, _standardFont));
+            clJobs.BorderWidthBottom = 0.75f;
+
+
+            PdfPCell clMes = new PdfPCell(new Phrase("    ", _standardFont));
+            clMes.BorderWidth = 1;
+            clMes.BorderWidthBottom = 0.75f;
+
+            PdfPCell clDia = new PdfPCell(new Phrase("    ", _standardFont));
+            clDia.BorderWidth = 1;
+            clDia.BorderWidthBottom = 0.75f;
+
+            PdfPCell clPrice_L = new PdfPCell(new Phrase("    ", _standardFont));
             clPrice.BorderWidth = 1;
+            clMes.BorderWidthBottom = 0.75f;
             // Añadimos las celdas a la tabla
-            tblPrueba.AddCell(clJobs);
-            tblPrueba.AddCell(clDescription);
-            tblPrueba.AddCell(clPrice);
+            tblLawn.AddCell(clJobs_L);
+            tblLawn.AddCell(clMes);
+            tblLawn.AddCell(clDia);
+            tblLawn.AddCell(clPrice_L);
+
+            doc.Add(tblLawn);
 
             clJobs = new PdfPCell(new Phrase("Others", _standardFont));
             clJobs.BorderWidth = 1;
@@ -474,9 +517,8 @@ namespace LawnTree
             tblPrueba.AddCell(clDescription);
             tblPrueba.AddCell(clPrice);
 
-            // Finalmente, añadimos la tabla al documento PDF y cerramos el documento
-            doc.Add(tblPrueba);
 
+            // Finalmente, añadimos la tabla al documento PDF y cerramos el documento
             doc.Close();
             writer.Close();
 

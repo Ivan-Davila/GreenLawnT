@@ -23,7 +23,7 @@
                         <ListBoxItem Name="List_lr" Content="Leaf Removal" HorizontalContentAlignment="Center" />
                         <ListBoxItem Name="List_ae" Content="Aeration" HorizontalContentAlignment="Center"/>
                         <ListBoxItem Name="List_si" Content="Sod Installation" HorizontalContentAlignment="Center" />
-                        <ListBoxItem Name="List_cc" Content="Cost Cleaning" HorizontalContentAlignment="Center" />
+                        <ListBoxItem Name="List_cc" Content="Lost Cleaning" HorizontalContentAlignment="Center" />
                         <ListBoxItem Name="List_lm" Content="Lawn Mower" HorizontalContentAlignment="Center" />
                         <ListBoxItem Name="List_ot" Content="Others" HorizontalContentAlignment="Center" />
                     </ListBox>
@@ -38,7 +38,7 @@
                     <Label x:Name="Job_lr" Content="Leaf removal" Margin="217,220,0,0" VerticalAlignment="Top" Width="106" FontSize="16" HorizontalAlignment="Left" Height="32"/>
                     <Label x:Name="Job_ae" Content="Aeration" Margin="217,243,0,0" VerticalAlignment="Top" Width="106" FontSize="16" HorizontalAlignment="Left" Height="32"/>
                     <Label x:Name="Job_si" Content="Sod installation" Margin="217,267,0,0" VerticalAlignment="Top" Width="131" FontSize="16" HorizontalAlignment="Left" Height="32"/>
-                    <Label x:Name="Job_cc" Content="Cost cleaning" Margin="217,290,0,0" VerticalAlignment="Top" Width="106" FontSize="16" HorizontalAlignment="Left" Height="32"/>
+                    <Label x:Name="Job_cc" Content="Lost cleaning" Margin="217,290,0,0" VerticalAlignment="Top" Width="106" FontSize="16" HorizontalAlignment="Left" Height="32"/>
                     <Label x:Name="Job_lm" Content="Lawn mower" Margin="217,313,0,0" VerticalAlignment="Top" Width="106" FontSize="16" HorizontalAlignment="Left" Height="32"/>
                     <Label x:Name="Job_ot" Content="Others" Margin="217,336,0,0" VerticalAlignment="Top" Width="106" FontSize="16" HorizontalAlignment="Left" Height="32"/>
                     <TextBox x:Name="Pri_lr" HorizontalAlignment="Left" Height="23" Margin="560,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" FontSize="16"/>
